@@ -1,0 +1,57 @@
+// Constructor function for Dog
+function Dog(name, breed, color, gender, cartoon, owner, mySound, canTalk) {
+    this.name = name;
+    this.breed = breed;
+    this.color = color;
+    this.gender = gender;
+    this.cartoon = cartoon;
+    this.owner = owner;
+    this.mySound = mySound;
+    this.canTalk = canTalk;
+
+    // Method to display greeting with canTalk message
+    this.myGreeting = function() {
+        if (this.canTalk) {
+            return `Hello! My name is ${this.name}. I can talk!`;
+        } else {
+            return `Hello! My name is ${this.name}. I cannot talk.`;
+        }
+    };
+}
+
+// Create two dog objects using the Dog constructor
+var dog1 = new Dog("Scooby-Doo", "Great Dane", "Brown with black spots", "Male", "Scooby-Doo, Where Are You!", "Ruh-roh! Raggy, ree hee hee hee!", true);
+var dog2 = new Dog("Brian Griffin", "Labrador Retriever", "White", "Male", "Family Guy", "Griffin Family", "Hello, old sport.", true);
+
+// Displaying properties of dog objects using for...in loop
+console.log("\nDog 1:");
+for (var property in dog1) {
+    console.log(`${property}: ${dog1[property]}`);
+}
+
+console.log("\nDog 2:");
+for (var property in dog2) {
+    console.log(`${property}: ${dog2[property]}`);
+}
+
+// Prompt user to select a dog
+var userInput = prompt("Select a dog by typing its name (e.g., Scooby-Doo or Brian Griffin):");
+
+// Display selected dog information or error message
+var selectedDog;
+if (userInput === "Scooby-Doo") {
+    selectedDog = dog1;
+} else if (userInput === "Brian Griffin") {
+    selectedDog = dog2;
+} else {
+    alert("Error: The selected dog does not exist in the list.");
+}
+
+// Display selected dog information or error message in HTML paragraph
+var paragraph = document.getElementById("dogInfo");
+
+if (selectedDog) {
+    paragraph.textContent = selectedDog.myGreeting();
+} else {
+    paragraph.textContent = "Error: The selected dog does not exist in the list.";
+}
