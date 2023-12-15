@@ -1,0 +1,16 @@
+// Ask user for their first name and display a welcome message
+var Fname = prompt("Please enter your first name:");
+alert("Hello " + Fname + "! Welcome!");
+
+// Create constant to store Pi to 7 significant digits
+const piValue = 3.1415926;
+
+// Ask user for their favorite number
+var myFavNum = parseFloat(prompt("Enter your favorite number:"));
+
+// Calculate the area of a circle using the user's favorite number as the radius
+var myArea = piValue * (myFavNum * myFavNum);
+
+// Display variables' contents on the webpage
+document.write("<p>Hello " + Fname + ", you entered " + myFavNum + " as your favorite number.</p>");
+document.write("<p>If that was the radius of a circle, the circle’s area would be " + myArea.toFixed(6) + ".</p>");
